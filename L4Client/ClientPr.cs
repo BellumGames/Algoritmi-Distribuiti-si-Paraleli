@@ -1,6 +1,6 @@
 namespace L4Client
 {
-    internal static class Program
+    internal static class ClientPr
     {
         /// <summary>
         ///  The main entry point for the application.
