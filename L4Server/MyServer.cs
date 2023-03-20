@@ -9,25 +9,23 @@ namespace L4Server
 {
     public class MyServer
     {
-        //Deci ca sa nu uit:
-        //Serverul prin Recive Message primeste mesaje de la clienti, in momentul primirii mesajelor de la clienti (clientii pot trimite doar mesaje gen salut) serverul trebuie sa raspund aprin send message cu count ca si index al clientului de asemenea redirectioneaza mesajul primit de la client la fiecare client conectat
         public TcpListener server = null;
         public NetworkStream stream = null;
         public StreamReader streamReader = null;
         public StreamWriter streamWriter = null;
-        public static Dictionary<string, string> log = new Dictionary<string, string>();
-        public static int count = 0;
+        public Dictionary<int, string> catalogue = new Dictionary<int, string>();
         public static int index = 0;
 
         public MyServer(TcpClient clientSocket)
         {
-            count++;
-            Console.WriteLine($"Client number #{index} connected");
-            log.Add($"Client {index}", "");
-            index++;
             stream = clientSocket.GetStream();
             streamReader = new StreamReader(stream);
             streamWriter = new StreamWriter(stream);
+            streamWriter.AutoFlush = true;
+            Console.WriteLine($"Client number #{index} connected");
+            catalogue.Add(index, string.Empty);
+            SendMessage(index.ToString());
+            index++;
             ReciveMessage();
             stream.Close();
         }
@@ -40,21 +38,34 @@ namespace L4Server
 
         public void SendMessage(string message)
         {
-            streamWriter.Flush();
+            streamWriter.WriteLine(message);
         }
 
         public void ReciveMessage()
         {
-
-            SendMessage(streamReader.ReadLine().ToString()); //mesaj primit de la client e redirectionat la restu
+            string message = streamReader.ReadLine().ToString();
+            int i = int.Parse(message.Substring(0, 1));
+            if (int.TryParse(message.Substring(message.Length - 1, 1), out _))
+            {
+                catalogue[i] = message.Substring(1, message.Length - 1); //se atribuie numele in catalog
+            }
+            else 
+            {
+                string first = message.Substring(0, 1);
+                string second = message.Substring(1, message.Length - 1);
+                message = first + catalogue[i] + ": " + second; //0Darius: Salut bro!1
+                SendMessage(message);
+            }
         }
 
         void run()
         {
-            server = new TcpListener(8000);
+            server = new TcpListener(System.Net.IPAddress.Any, 8000);
             server.Start();
             while (true)
             {
+                if(index == 10)
+                    Environment.Exit(-1);
                 TcpClient clientSocket = server.AcceptTcpClient();
                 new MyServer(clientSocket);
             }

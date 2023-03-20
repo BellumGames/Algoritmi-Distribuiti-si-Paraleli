@@ -28,29 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listViewClients = new System.Windows.Forms.ListView();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.textBoxMessage = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.listViewChat = new System.Windows.Forms.ListView();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.listBoxClients = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // listViewClients
-            // 
-            this.listViewClients.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3});
-            this.listViewClients.Location = new System.Drawing.Point(12, 12);
-            this.listViewClients.Name = "listViewClients";
-            this.listViewClients.Size = new System.Drawing.Size(121, 426);
-            this.listViewClients.TabIndex = 0;
-            this.listViewClients.UseCompatibleStateImageBehavior = false;
-            this.listViewClients.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Online Clients ";
-            this.columnHeader3.Width = 100;
             // 
             // textBoxMessage
             // 
@@ -86,15 +69,23 @@
             this.columnHeader5.Text = "Welcome to Chat";
             this.columnHeader5.Width = 625;
             // 
+            // listBoxClients
+            // 
+            this.listBoxClients.ItemHeight = 15;
+            this.listBoxClients.Location = new System.Drawing.Point(12, 12);
+            this.listBoxClients.Name = "listBoxClients";
+            this.listBoxClients.Size = new System.Drawing.Size(121, 424);
+            this.listBoxClients.TabIndex = 0;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.listBoxClients);
             this.Controls.Add(this.listViewChat);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.textBoxMessage);
-            this.Controls.Add(this.listViewClients);
             this.Name = "Client";
             this.Text = "Client";
             this.ResumeLayout(false);
@@ -103,12 +94,10 @@
         }
 
         #endregion
-
-        private ListView listViewClients;
         private TextBox textBoxMessage;
         private Button btnSend;
         private ListView listViewChat;
-        private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader5;
+        private ListBox listBoxClients;
     }
 }
