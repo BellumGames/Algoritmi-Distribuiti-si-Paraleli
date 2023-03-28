@@ -5,19 +5,34 @@ namespace L4Client
     public partial class Client : Form
     {
         public MyClient c = null;
+        M form = new M();
         public static int clientIndex = -1;
+        public static int flag = 0;
         public static string clientName = string.Empty;
         public static Dictionary<int, List<string>> log = new Dictionary<int, List<string>>();
+        public static Dictionary<int, string> catalogue = new Dictionary<int, string>();
 
         public Client()
         {
             InitializeComponent();
             CheckForIllegalCrossThreadCalls = false;
-            M form = new M();
+            this.Hide();
             form.Show();
+            Thread thread = new Thread(new ThreadStart(run));
+            thread.Start();
         }
 
-        //c = new MyClient();
+        public void run() 
+        {
+            while (true) 
+            {
+                if (flag == 1) 
+                {
+                    c = new MyClient();
+                    return;
+                }
+            }
+        }
 
         public void RefreshMessages()
         {

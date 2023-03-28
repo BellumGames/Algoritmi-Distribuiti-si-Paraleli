@@ -19,8 +19,13 @@ namespace L4Client
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Client.clientName = textBoxName.Text;
-            this.Close();
+            if (!textBoxName.Text.Equals(string.Empty)) 
+            {
+                Client.clientName = textBoxName.Text;
+                Client.flag = 1;
+                this.Dispose();
+                this.Close();
+            }
         }
     }
 }

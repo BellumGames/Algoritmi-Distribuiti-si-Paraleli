@@ -44,15 +44,21 @@ namespace L4Server
         public void ReciveMessage()
         {
             string message = streamReader.ReadLine().ToString();
-            int i = int.Parse(message.Substring(0, 1));
-            if (int.TryParse(message.Substring(message.Length - 1, 1), out _))
+            int i = int.Parse(message.Substring(0, 1)); //index sursa
+            if (!int.TryParse(message.Substring(message.Length - 1, 1), out _)) //daca ulimu caracter din mesajul venit nu e int atunci nu e mesaj propriu-zis
             {
-                catalogue[i] = message.Substring(1, message.Length - 1); //se atribuie numele in catalog
+                catalogue[i] = message.Substring(1, message.Length - 1); //se atribuie numele in catalog spre exe 0Darius
+                string userList = "FLAG ";
+                foreach (var item in catalogue) 
+                {
+                    userList += item.Key + item.Value + " ";
+                }
+                SendMessage(userList);
             }
             else 
             {
-                string first = message.Substring(0, 1);
-                string second = message.Substring(1, message.Length - 1);
+                string first = message.Substring(0, 1); //0
+                string second = message.Substring(1, message.Length - 1);//Salutbro!1
                 message = first + catalogue[i] + ": " + second; //0Darius: Salut bro!1
                 SendMessage(message);
             }
