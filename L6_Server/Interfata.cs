@@ -9,6 +9,6 @@ namespace L6_Server
     [ServiceContract]
     public interface IWCFServer
     {
-        [OperationContract] string SayHello();
+        [OperationContract] string ConnectToDB(string querry);
     }
 }

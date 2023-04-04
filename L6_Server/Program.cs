@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
@@ -9,8 +10,12 @@ using System.Text;
 
 namespace L6_Server
 {
-    internal class Program
+    public class Program
     {
+        public static List<int> id = new List<int>();
+        public static List<string> nume = new List<string>();
+        public static List<double> medie = new List<double>();
+
         static void Main(string[] args)
         {
             NetTcpBinding binding = new NetTcpBinding();
