@@ -4,7 +4,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 
-namespace L6_Server
+namespace L6_Client
 {
     [ServiceContract]
     public interface IWCFServer

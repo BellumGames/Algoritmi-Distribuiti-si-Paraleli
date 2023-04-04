@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{30078B3C-210B-46CA-A503-00A72F45BB46}</ProjectGuid>
+    <ProjectGuid>{E4995561-CA5E-460F-BD4B-9268C80377A6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>L6_Client</RootNamespace>
     <AssemblyName>L6_Client</AssemblyName>
@@ -34,21 +34,16 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfata.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\L6_Server\L6_Server_old.csproj">
-      <Project>{B5DDBD46-A73B-4160-9235-585826A1CD06}</Project>
-      <Name>L6_Server_old</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

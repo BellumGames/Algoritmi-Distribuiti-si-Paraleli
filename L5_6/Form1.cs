@@ -13,7 +13,7 @@ namespace L5_6
         {
             InitializeComponent();
             ConnectToDB();
-            //InitDataGridView();
+            InitDataGridView();
         }
 
         private void dataGridView_CellFormatting(object sender, System.Windows.Forms.DataGridViewCellFormattingEventArgs e)
