@@ -33,15 +33,16 @@ namespace L7_PingPong
                     //lim inf pt suma
                     int limInf = comm.Rank * d;
                     //lim sup pt suma
-                    int limSum = limInf * d;
+                    int limSup = limInf * d;
                     if (comm.Rank == comm.Size - 1) 
                     {
-                        for (int i = limInf; i < limSum; i++) 
-                        {
-                            sum += array[i];
-                        }
-                        comm.Send<int>(sum, 0, 0);
+                        limSup = array.Length;
                     }
+                    for (int i = limInf; i < limSup; i++)
+                    {
+                        sum += array[i];
+                    }
+                    comm.Send<int>(sum, 0, 0);
                 }
             }
         }
