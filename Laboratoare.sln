@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L6_Server", "L6_Server\L6_S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L6_Client", "L6_Client\L6_Client.csproj", "{E4995561-CA5E-460F-BD4B-9268C80377A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L7_PingPong", "L7_PingPong\L7_PingPong.csproj", "{FF40C8B0-D339-431D-88C6-944AF3F9347F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{E4995561-CA5E-460F-BD4B-9268C80377A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4995561-CA5E-460F-BD4B-9268C80377A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4995561-CA5E-460F-BD4B-9268C80377A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF40C8B0-D339-431D-88C6-944AF3F9347F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF40C8B0-D339-431D-88C6-944AF3F9347F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF40C8B0-D339-431D-88C6-944AF3F9347F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF40C8B0-D339-431D-88C6-944AF3F9347F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
